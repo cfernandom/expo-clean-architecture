@@ -1,15 +1,17 @@
+import { EmailOV } from "../objectValues/email.ov";
 import { LocationOV } from "../objectValues/location.ov";
 
 export interface UserEntity {
     id: string;
-    title: string;
     firstName: string;
     lastName: string;
-    gender: string;
+    title: string;
+    picture: string;
     email: string;
+    gender: string;
     dateOfBirth: string;
     registerDate: string;
     phone: string;
-    picture: string;
     location: LocationOV;
+    //email: EmailOV;
 }

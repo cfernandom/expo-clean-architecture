@@ -1,12 +1,14 @@
 import { useLocalSearchParams } from "expo-router"
+import { Fragment } from "react"
 import { Text } from "react-native"
+import UserCard from "../../components/UserCard.Component"
 
 const DetailsScreen = () => {
     const { id, q } = useLocalSearchParams()
     return (
-        <Text>
-            el id es {id} y la q es {q}
-        </Text>
+        <Fragment>
+            <UserCard userId={id.toString()} />
+        </Fragment>
     )
 }
 

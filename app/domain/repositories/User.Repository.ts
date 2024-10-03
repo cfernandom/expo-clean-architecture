@@ -1,5 +1,5 @@
-import { UserPreviewEntity } from "../entities/UserPreview.Entity";
+import { UserEntity } from "../entities/User.Entity";
 import { GenericRepository } from "./Generic.Repository";
 import { ResponseRepository } from "./Response.Repository";
 
-export interface UserRepository extends GenericRepository<UserPreviewEntity> {}
+export interface UserRepository extends GenericRepository<UserEntity> {}

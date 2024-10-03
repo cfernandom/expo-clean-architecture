@@ -1,6 +1,6 @@
 import { UserServices } from '@/app/applicationService/services/userServices'
 import { GetUserUC } from '@/app/applicationService/useCases/GetUser.UC'
-import { UserPreviewEntity } from '@/app/domain/entities/UserPreview.Entity'
+import { UserEntity } from '@/app/domain/entities/User.Entity'
 import { UserApiDT } from '@/app/infraestructure/dataSources/UserApi.DT'
 import React, { useEffect, useState } from 'react'
 import { Text, View } from 'react-native'
@@ -10,8 +10,8 @@ import { Divider, List } from '@mui/material'
 import { DummyApi } from '@/app/infraestructure/dataSources/DummyApi'
 
 const UserScreen: React.FC = () => {
-    const [user, setUser] = useState<UserPreviewEntity | undefined>({id: "", firstName: "", lastName: "", picture: "", title: ""})
-    const [users, setUsers] = useState<UserPreviewEntity[]>([])
+    const [user, setUser] = useState<UserEntity | undefined>()
+    const [users, setUsers] = useState<UserEntity[]>([])
     const getUserUC = new GetUserUC(new UserServices(new DummyApi()))
     const getAllUserUC = new GetUsersUC(new UserServices(new DummyApi()))
 

@@ -1,10 +1,10 @@
-import { UserPreviewEntity } from "@/app/domain/entities/UserPreview.Entity";
+import { UserEntity } from "@/app/domain/entities/User.Entity";
 import { Avatar, Divider, List, ListItem, ListItemAvatar, ListItemText, Typography } from "@mui/material";
 import React, { useEffect } from "react";
 import { Text } from "react-native";
 import { Link, useRouter } from "expo-router";
 
-export default function UserListComponent({ users }: { users: UserPreviewEntity[] }) {
+export default function UserListComponent({ users }: { users: UserEntity[] }) {
 
     useEffect(() => {
         console.log("hola")
