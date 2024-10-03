@@ -1,5 +1,5 @@
 
-import { UserEntity } from "@/app/domain/entities/User.Entity";
+import { UserPreviewEntity } from "@/app/domain/entities/User.Entity";
 import { ResponseRepository } from "@/app/domain/repositories/Response.Repository";
 import { UserRepository } from "@/app/domain/repositories/User.Repository";
 export class GetUserUC {
@@ -8,7 +8,7 @@ export class GetUserUC {
         this.userRepository = userRepository
     }
 
-    async execute(id:string): Promise<ResponseRepository<UserEntity>> {
-        return await this.userRepository.getUserById(id)
+    async execute(id:string): Promise<ResponseRepository<UserPreviewEntity>> {
+        return await this.userRepository.getById(id)
     }
 }

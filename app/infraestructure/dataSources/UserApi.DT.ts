@@ -1,7 +1,7 @@
-import { UserEntity } from "@/app/domain/entities/User.Entity";
+import { UserPreviewEntity } from "@/app/domain/entities/User.Entity";
 
 export class UserApiDT {
-    data:UserEntity[] = [
+    data:UserPreviewEntity[] = [
         {
             email:{email: "cristhian@emial.com"},
             id: "3",
@@ -18,7 +18,7 @@ export class UserApiDT {
             name: "moreno"
         }
     ]
-    async fetchUsers(): Promise<UserEntity[]> {
+    async fetchUsers(): Promise<UserPreviewEntity[]> {
         return this.data
     }
 }

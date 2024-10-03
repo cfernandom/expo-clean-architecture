@@ -1,18 +1,19 @@
 import { UserServices } from '@/app/applicationService/services/userServices'
 import { GetUserUC } from '@/app/applicationService/useCases/GetUser.UC'
-import { UserEntity } from '@/app/domain/entities/User.Entity'
+import { UserPreviewEntity } from '@/app/domain/entities/UserPreview.Entity'
 import { UserApiDT } from '@/app/infraestructure/dataSources/UserApi.DT'
 import React, { useEffect, useState } from 'react'
 import { Text, View } from 'react-native'
 import UserListComponent from '../../components/UserList.Component'
 import { GetUsersUC } from '@/app/applicationService/useCases/GetUsers.UC'
 import { Divider, List } from '@mui/material'
+import { DummyApi } from '@/app/infraestructure/dataSources/DummyApi'
 
 const UserScreen: React.FC = () => {
-    const [user, setUser] = useState<UserEntity | undefined>({ email: { email: "" }, id: "", name: "" })
-    const [users, setUsers] = useState<UserEntity[]>([])
-    const getUserUC = new GetUserUC(new UserServices(new UserApiDT()))
-    const getAllUserUC = new GetUsersUC(new UserServices(new UserApiDT()))
+    const [user, setUser] = useState<UserPreviewEntity | undefined>({id: "", firstName: "", lastName: "", picture: "", title: ""})
+    const [users, setUsers] = useState<UserPreviewEntity[]>([])
+    const getUserUC = new GetUserUC(new UserServices(new DummyApi()))
+    const getAllUserUC = new GetUsersUC(new UserServices(new DummyApi()))
 
 
     useEffect(() => {
@@ -28,11 +29,10 @@ const UserScreen: React.FC = () => {
             const userData = await getAllUserUC.execute()
             if (userData.statusCode === "200" && userData.data) {
                 setUsers(userData.data);
-                console.log(userData.data)
             }
         }
 
-        fetchData();
+        //fetchData();
         fetchUsers();
 
     }, [])

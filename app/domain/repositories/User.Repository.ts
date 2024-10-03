@@ -1,7 +1,5 @@
-import { UserEntity } from "../entities/User.Entity";
+import { UserPreviewEntity } from "../entities/UserPreview.Entity";
+import { GenericRepository } from "./Generic.Repository";
 import { ResponseRepository } from "./Response.Repository";
 
-export interface UserRepository {
-    getUserById(id: string): Promise<ResponseRepository<UserEntity>>;
-    getUsers(): Promise<ResponseRepository<UserEntity[]>>;
-}
+export interface UserRepository extends GenericRepository<UserPreviewEntity> {}
