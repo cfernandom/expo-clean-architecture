@@ -1,13 +1,11 @@
-import { UserServices } from '@/app/applicationService/services/userServices'
-import { GetUserUC } from '@/app/applicationService/useCases/GetUser.UC'
-import { UserEntity } from '@/app/domain/entities/User.Entity'
-import { UserApiDT } from '@/app/infraestructure/dataSources/UserApi.DT'
-import React, { useEffect, useState } from 'react'
-import { Text, View } from 'react-native'
-import UserListComponent from '../../components/UserList.Component'
-import { GetUsersUC } from '@/app/applicationService/useCases/GetUsers.UC'
-import { Divider, List } from '@mui/material'
 import { DummyApi } from '@/app/infraestructure/dataSources/DummyApi'
+import { GetUsersUC } from '@/app/applicationService/useCases/user/GetUsers.UC'
+import { GetUserUC } from '@/app/applicationService/useCases/user/GetUser.UC'
+import { View } from 'react-native'
+import { UserEntity } from '@/app/domain/entities/User.Entity'
+import { UserServices } from '@/app/applicationService/services/userServices'
+import React, { useEffect, useState } from 'react'
+import UserListComponent from '../../components/UserList.Component'
 
 const UserScreen: React.FC = () => {
     const [user, setUser] = useState<UserEntity | undefined>()

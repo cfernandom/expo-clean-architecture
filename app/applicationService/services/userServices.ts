@@ -31,13 +31,26 @@ export class UserServices implements UserRepository {
         }
     }
     
-    create(body: UserEntity): Promise<ResponseRepository<UserEntity>> {
-        throw new Error("Method not implemented.");
+    async create(body: UserEntity): Promise<ResponseRepository<UserEntity>> {
+        return {
+            statusCode: "200",
+            message: "User created",
+            data: await this.apiData.create("user/create", body)
+        }
     }
-    update(id: string, body: UserEntity): Promise<ResponseRepository<UserEntity>> {
-        throw new Error("Method not implemented.");
+    async update(id: string, body: UserEntity): Promise<ResponseRepository<UserEntity>> {
+        return {
+            statusCode: "200",
+            message: "User updated",
+            data: await this.apiData.update(id, body)
+        }
     }
-    delete(id: string): Promise<ResponseRepository<string>> {
-        throw new Error("Method not implemented.");
+
+    async delete(id: string): Promise<ResponseRepository<string>> {
+        return {
+            statusCode: "200",
+            message: "User deleted",
+            data: await this.apiData.delete(id)
+        }
     }
 }

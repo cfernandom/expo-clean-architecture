@@ -1,8 +1,8 @@
-import { UserEntity } from "@/app/domain/entities/User.Entity";
 import { Avatar, Divider, List, ListItem, ListItemAvatar, ListItemText, Typography } from "@mui/material";
-import React, { useEffect } from "react";
-import { Text } from "react-native";
 import { Link, useRouter } from "expo-router";
+import { Text } from "react-native";
+import { UserEntity } from "@/app/domain/entities/User.Entity";
+import React, { useEffect } from "react";
 
 export default function UserListComponent({ users }: { users: UserEntity[] }) {
 
