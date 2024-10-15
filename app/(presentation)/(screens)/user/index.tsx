@@ -1,11 +1,12 @@
 import { DummyApi } from '@/app/infraestructure/dataSources/DummyApi'
 import { GetUsersUC } from '@/app/applicationService/useCases/user/GetUsers.UC'
 import { GetUserUC } from '@/app/applicationService/useCases/user/GetUser.UC'
-import { View } from 'react-native'
+import { View, ScrollView, Text } from 'react-native'
 import { UserEntity } from '@/app/domain/entities/User.Entity'
 import { UserServices } from '@/app/applicationService/services/userServices'
 import React, { useEffect, useState } from 'react'
-import UserListComponent from '../../components/UserList.Component'
+import CustomUserListComponent from '../../components/CustomUserList.Component'
+
 
 const UserScreen: React.FC = () => {
     const [user, setUser] = useState<UserEntity | undefined>()
@@ -36,9 +37,9 @@ const UserScreen: React.FC = () => {
     }, [])
 
     return (
-        <View>
-            <UserListComponent users={users} />
-        </View>
+        <ScrollView>
+            <CustomUserListComponent users={users} />
+        </ScrollView>
     )
 }
 
